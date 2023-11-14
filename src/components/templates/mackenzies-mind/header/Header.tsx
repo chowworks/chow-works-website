@@ -8,7 +8,7 @@ import widthUtils from "../../../../utils/widthUtils";
 import Logo from "../../../logo/Logo";
 import CustomizedThemeContext from "../../../customized-theme-provider/CustomizedThemeContext";
 import {SanityMenuContainer} from "../../../../common/sanityIo/Types";
-import {Search} from "@mui/icons-material";
+import {Close, Search} from "@mui/icons-material";
 import FullTextSearch from "./FullTextSearch";
 import AppBarWrapper from './AppBarWrapper';
 
@@ -90,6 +90,9 @@ const Header: FunctionComponent<HeaderProps> = (props) => {
             }
             <Modal open={isSearchOpen}>
                 <Grid container style={{height: "100%"}}>
+                    <Grid container item justifyContent='flex-end'>
+                        <Close sx={{marginX:"16px", marginY:"16px"}} fontSize={"large"} color={'secondary'} onClick={()=>{setIsSearchOpen(false)}}/>
+                    </Grid>
                     <Grid container justifyContent='center' alignContent='center' alignItems='center' paddingX={'32px'}
                           style={{height: "100%"}}>
                         <FullTextSearch/>
