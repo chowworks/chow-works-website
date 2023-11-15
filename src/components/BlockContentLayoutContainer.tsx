@@ -414,7 +414,7 @@ const BlockContentLayoutContainer: FunctionComponent<BlockContentLayoutContainer
                                 />
                             </Grid>
                         );
-                    case 'AnimatedServicesSection':
+                    case 'AnimatedAboutUsSection':
                         const animatedServicesSection: AnimatedServicesSectionType = columnLayoutContainer
                         return (
                             <Grid key={'animated-about-us'} container item xs={12}>

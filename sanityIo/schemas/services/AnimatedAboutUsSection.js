@@ -1,6 +1,6 @@
 export default {
-    name: 'AnimatedServicesSection',
-    title: "Animated Services Section",
+    name: 'AnimatedAboutUsSection',
+    title: "Animated About Us Section",
     type: 'document',
     fields: [
         {
