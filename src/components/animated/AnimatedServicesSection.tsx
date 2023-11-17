@@ -18,6 +18,8 @@ import shape8 from "./abstract-shapes-background/services-v1-shape8-cyan.png"
 import shape9 from "./abstract-shapes-background/services-v1-shape9-dark-blue.png"
 import shape10 from "./abstract-shapes-background/services-v1-shape10-dark-blue.png"
 import shape11 from "./abstract-shapes-background/services-v1-shape11-dark-blue.png"
+import AbstractShapesBackground from "./abstract-shapes-background/AbstractShapesBackground";
+
 export const useStyles = makeStyles((theme: Theme) => ({
     root: {
         // paddingTop: '64px',
@@ -39,30 +41,35 @@ const AnimatedServicesSection: FunctionComponent<IProps> = (props) => {
 
     return (
         <ThemeProvider theme={customizedThemeContext.customizedTheme}>
-            <Grid container item className={classes.root} xs={12} alignItems='center' style={{position: "relative",
+            <Grid container item className={classes.root} xs={12} alignItems='center' style={{
+                position: "relative",
                 // backgroundColor:customizedThemeContext.customizedTheme.palette.primary.dark
             }}>
                 <Grid item container style={{padding: customizedThemeContext.customizedTheme.spacing(8, 6), zIndex: 10}}
                       spacing={2} justifyContent='center'>
                     <Grid item xs={12}>
                         <Grid item container>
-                            <BulletedHeader isCenter={true} color='secondary' textContent={props.sectionData?.contentPreTitle} heroBullet={props.sectionData?.heroBullet}/>
+                            <BulletedHeader isCenter={true} color='secondary'
+                                            textContent={props.sectionData?.contentPreTitle}
+                                            heroBullet={props.sectionData?.heroBullet}/>
                         </Grid>
                         <Grid container item justifyContent='center'>
                             <Grid item container justifyContent='center' maxWidth={800}>
                                 <Grid item>
-                                    <Typography  color='textSecondary' style={{fontSize: "48px"}} gutterBottom  variant='h2'
+                                    <Typography color='textSecondary' style={{fontSize: "48px"}} gutterBottom
+                                                variant='h2'
                                                 align='center'>{props.sectionData.contentTitle}</Typography>
                                 </Grid>
                             </Grid>
                         </Grid>
                         <Grid container item justifyContent='center'>
-                        <Grid item container justifyContent='center' maxWidth={640}>
-                            {props.sectionData?.contentTexts?.map((segment: string, index: number) => (
-                                <Grid item key={`content-text-${index}`}>
-                                    <Typography color='textSecondary' align='center' variant='body1' gutterBottom>{segment}</Typography>
-                                </Grid>))}
-                        </Grid>
+                            <Grid item container justifyContent='center' maxWidth={640}>
+                                {props.sectionData?.contentTexts?.map((segment: string, index: number) => (
+                                    <Grid item key={`content-text-${index}`}>
+                                        <Typography color='textSecondary' align='center' variant='body1'
+                                                    gutterBottom>{segment}</Typography>
+                                    </Grid>))}
+                            </Grid>
                         </Grid>
 
                     </Grid>
@@ -73,7 +80,7 @@ const AnimatedServicesSection: FunctionComponent<IProps> = (props) => {
                         })}
                     </Grid>
                     <Grid item container justifyContent='center' spacing={2}>
-                        <Grid item container justifyContent='center' style={{marginTop:"32px"}}>
+                        <Grid item container justifyContent='center' style={{marginTop: "32px"}}>
                             <Grid item maxWidth={800}>
                                 <Typography style={{fontSize: "48px"}} gutterBottom color='textSecondary' variant='h2'
                                             align='center'>{props.sectionData.contentSummaryTitle}</Typography>
@@ -81,8 +88,9 @@ const AnimatedServicesSection: FunctionComponent<IProps> = (props) => {
                         </Grid>
                         <Grid item container justifyContent='center'>
                             {props.sectionData?.contentSummaryTexts?.map((segment: string, index: number) => (
-                                <Grid item key={index}  maxWidth={640}>
-                                    <Typography color='textSecondary' align='center' variant='body1' gutterBottom>{segment}</Typography>
+                                <Grid item key={index} maxWidth={640}>
+                                    <Typography color='textSecondary' align='center' variant='body1'
+                                                gutterBottom>{segment}</Typography>
                                 </Grid>))}
                         </Grid>
                         <Grid item container justifyContent='center'>
@@ -96,7 +104,7 @@ const AnimatedServicesSection: FunctionComponent<IProps> = (props) => {
                                 color={'primary'}
                                 href={props.sectionData.ctaButtonLink ?? ''}
                                 style={{
-                                    marginTop:"18px",
+                                    marginTop: "18px",
                                     border: "1px solid #FAFAFA"
                                 }}
                             >
@@ -109,38 +117,7 @@ const AnimatedServicesSection: FunctionComponent<IProps> = (props) => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid container item style={{backgroundColor:customizedThemeContext.customizedTheme.palette.primary.dark,zIndex: 0,width:"100%", height:"100%",  position: "absolute"}}>
-                    <Grid item style={{position: "absolute", bottom: -10}}>
-                        <img src={shape3} />
-                    </Grid>
-                    <Grid item style={{position: "absolute", bottom: 0, opacity: .35}}>
-                        <img src={shape9} />
-                    </Grid>
-                    <Grid item style={{position: "absolute", bottom: 0, opacity: .15}}>
-                        <img src={shape11} />
-                    </Grid>
-                    <Grid item style={{position: "absolute", bottom: -10, opacity: .5}}>
-                        <img src={shape4} />
-                    </Grid>
-                    <Grid item style={{position: "absolute", right: 0}}>
-                        <img src={shape7} />
-                    </Grid>
-                    <Grid item style={{position: "absolute", right: 0, opacity: .5}}>
-                        <img src={shape8} />
-                    </Grid>
-                    <Grid item style={{position: "absolute"}}>
-                        <img src={shape5} />
-                    </Grid>
-                    <Grid item style={{position: "absolute", opacity: .6}}>
-                        <img src={shape2} />
-                    </Grid>
-                    <Grid item style={{position: "absolute", right: 0}}>
-                        <img src={shape6} />
-                    </Grid>
-                    <Grid item style={{position: "absolute", right: 0, bottom: 0, opacity: .6}}>
-                        <img src={shape10} />
-                    </Grid>
-                </Grid>
+                <AbstractShapesBackground />
             </Grid>
         </ThemeProvider>
     )
