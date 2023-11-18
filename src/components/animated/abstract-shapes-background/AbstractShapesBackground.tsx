@@ -25,50 +25,55 @@ interface IProps {
 const AbstractShapesBackground: FunctionComponent<IProps> = (props: IProps) => {
     const customizedThemeContext = useContext(CustomizedThemeContext)
 
-    const shape4Variants = {
-        onScreen: {bottom: -10, transition: {duration: .75}},
-        offScreen: {bottom: -300, transition: {duration: .75}}
+    const shape2Variants = {
+        onScreen: {top: 0, transition: {duration: .45}},
+        offScreen: {top: -440, transition: {duration: .45}}
     };
 
     const shape3Variants = {
-        onScreen: {bottom: -10, transition: {duration: .5}},
+        onScreen: {bottom: -5, transition: {duration: .5}},
         offScreen: {bottom: -500, transition: {duration: .5}}
     };
-    const shape9Variants = {
-        onScreen: {bottom: 0, transition: {duration: .65}},
-        offScreen: {bottom: -900, transition: {duration: .65}}
+
+    const shape4Variants = {
+        onScreen: {bottom: -5, transition: {duration: .75}},
+        offScreen: {bottom: -300, transition: {duration: .75}}
     };
 
-    const shape11Variants = {
-        onScreen: {bottom: 0, transition: {duration: .55}},
-        offScreen: {bottom: -800, transition: {duration: .55}}
+    const shape5Variants = {
+        onScreen: {top: 0, transition: {duration: .45}},
+        offScreen: {top: -900, transition: {duration: .45}}
+    };
+
+    const shape6Variants = {
+        onScreen: {right: 0, top: 0, transition: {duration: .45}},
+        offScreen: {right: 0, top: -720, transition: {duration: .45}}
     };
 
     const shape7Variants = {
         onScreen: {right: 0, top: 0, transition: {duration: 1}},
         offScreen: {right: 0, top: -250, transition: {duration: 1}}
     };
+
     const shape8Variants = {
         onScreen: {right: 0, top: 0, transition: {duration: .45}},
         offScreen: {right: 0, top: -250, transition: {duration: .45}}
     };
-    const shape6Variants = {
-        onScreen: {right: 0, top: 0, transition: {duration: .45}},
-        offScreen: {right: 0, top: -720, transition: {duration: .45}}
+
+    const shape9Variants = {
+        onScreen: {bottom: 0, transition: {duration: .65}},
+        offScreen: {bottom: -900, transition: {duration: .65}}
     };
-    const shape5Variants = {
-        onScreen: {top: 0, transition: {duration: .45}},
-        offScreen: {top: -900, transition: {duration: .45}}
-    };
-    const shape2Variants = {
-        onScreen: {top: 0, transition: {duration: .45}},
-        offScreen: {top: -440, transition: {duration: .45}}
-    };
+
     const shape10Variants = {
         onScreen: {top: 0, right: 0, bottom: 0, transition: {duration: .45}},
         offScreen: {top: -980, right: 0, bottom: 0, transition: {duration: .45}}
     };
 
+    const shape11Variants = {
+        onScreen: {bottom: 0, transition: {duration: .55}},
+        offScreen: {bottom: -800, transition: {duration: .55}}
+    };
 
     return (<Grid container item
                   style={{

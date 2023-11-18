@@ -22,7 +22,8 @@ import AbstractShapesBackground from "./abstract-shapes-background/AbstractShape
 
 export const useStyles = makeStyles((theme: Theme) => ({
     root: {
-        // paddingTop: '64px',
+        paddingTop: '56px',
+        paddingBottom: '64px',
         overflow: "hidden"
     },
 }))
