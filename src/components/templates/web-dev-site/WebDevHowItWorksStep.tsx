@@ -37,7 +37,7 @@ const WebDevHowItWorksStep: FunctionComponent<IProps> = (props: IProps) => {
             {props.step.learnMoreText && props.step?.learnMoreText.length > 0 &&
                 <Button fullWidth
                         onClick={() =>
-                            firebaseAnalyticsClient.ctaClick(props.step.slug?.current ?? "", props.step.learnMoreText, pageContext.analyticsId,)
+                            firebaseAnalyticsClient.ctaClick(props.step.slug?.current ?? "", props.step.learnMoreText ?? "", pageContext.analyticsId,)
 
                         } color='primary' href={props.step.learnMoreLink}
                         variant='outlined'><Typography variant='button'
@@ -46,8 +46,6 @@ const WebDevHowItWorksStep: FunctionComponent<IProps> = (props: IProps) => {
     }
 
     return (
-        <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={WebDevSiteTheme}>
                 <Grid className={classes.root} key={uuidv4()} container item xs={12} sm={12} md={6}
                       style={{backgroundColor: COLOR_ROTATION[(props.index ?? 0) % 3]}}>
                     <Grid container item direction='column'>
@@ -73,8 +71,7 @@ const WebDevHowItWorksStep: FunctionComponent<IProps> = (props: IProps) => {
                             </Grid>
                         </Grid>
                     </Grid>
-                </Grid></ThemeProvider>
-        </StyledEngineProvider>
+                </Grid>
     );
 }
 

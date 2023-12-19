@@ -1,15 +1,17 @@
 {
   "name": "chowworks-website",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "GPL-3.0-or-later",
   "private": true,
   "dependencies": {
+    "@babel/plugin-transform-private-property-in-object": "^7.23.4",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.14.18",
     "@mui/styles": "^5.14.18",
     "@react-google-maps/api": "^2.19.2",
+    "@react-pdf/renderer": "^3.1.14",
     "@storybook/addon-mdx-gfm": "^7.4.6",
     "@storybook/react-webpack5": "^7.4.6",
     "@tanstack/react-query": "^4.36.1",
@@ -58,8 +60,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "firebaseDeploy": "firebase deploy --only hosting",
-    "storybook": "storybook dev -p 6006 -s public",
-    "build-storybook": "storybook build -s public"
+    "storybook": "sb dev",
+    "build-storybook": "sb build"
   },
   "eslintConfig": {
     "extends": [

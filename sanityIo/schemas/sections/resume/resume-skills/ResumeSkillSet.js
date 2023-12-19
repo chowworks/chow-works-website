@@ -1,7 +1,7 @@
 export default {
     name: 'ResumeSkillset',
     title: 'Resume Skillset',
-    type: 'object',
+    type: 'document',
     fields: [
         {
             name: 'name',
@@ -22,5 +22,12 @@ export default {
                 to: [{type: "ResumeSkill"}]
             }]
         },
+        {
+            name: 'searchableOnPages',
+            title: 'Make Searchable on pages',
+            type: 'array',
+            of:[{type: "reference", to: {type:"homePage"}}]
+        },
+
     ]
 }

@@ -28,8 +28,14 @@ export default {
             name: 'skillsets',
             title: 'Skillsets',
             type: "array",
-            of: [{type: "ResumeSkillset"},
+            of: [{type: "reference", to:{type:"ResumeSkillset"}},
             ]
+        },
+        {
+            name: 'searchableOnPages',
+            title: 'Make Searchable on pages',
+            type: 'array',
+            of:[{type: "reference", to: {type:"homePage"}}]
         },
     ]
 }

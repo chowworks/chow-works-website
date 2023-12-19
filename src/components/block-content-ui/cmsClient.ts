@@ -466,14 +466,18 @@ const useFetchServicesQuery = (pageSlug?: string) => {
         });
 }
 
-const fullTextSearch = (textToSearch: string): Promise<any> => {
+const fullTextSearch = (textToSearch: string, pageId: string): Promise<any> => {
 
+    console.log("the page id", pageId)
     return sanityClient
         .fetch(
             `*[
-            [
+            ([
                 title, 
+                careerTitle,
+                introduction,
                 name, 
+                email,
                 contentText, 
                 contentTexts, 
                 contentTitle, 
@@ -484,28 +488,43 @@ const fullTextSearch = (textToSearch: string): Promise<any> => {
                 contentSummaryTitle,
                 contentSummaryTexts,
                 videoUrl,
-                
-            ] match '*${textToSearch}*']{
+            ] match '*${textToSearch}*') && references('${pageId}')]{
                 ..., 
                 "skillsUsed" : skillsUsed[]->,
+                "skills" : skills[]->,
+                "skillsHighlighted": skillsHighlighted[]->,
             }`,
             // {searchText: textToSearch}
         ).then((data: any) => {
-            console.log("data from fulltext search", data)
+            console.log("results from full text search", data, textToSearch, pageId)
             return data
         })
 }
-const skillReferenceSearch = (skill: ResumeSkill): Promise<any> => {
+const skillReferenceSearch = (skill: ResumeSkill, pageId: string): Promise<any> => {
     return sanityClient
         .fetch(
-            `*[references($searchText)]{
+            `*[references($searchText) && references('${pageId}')]{
                 ..., 
                 "skillsHighlighted": skillsHighlighted[]->,
                 "skillsUsed" : skillsUsed[]->,
+                "skills":skills[]->,
             }`,
-            {searchText: skill._id}
-        ).then((data: any) => {
-            console.log("data from skillReference search", data)
+            {searchText: skill._id, pageId: pageId}
+        ).then((data: any[]) => {
+
+
+            data.sort((left, right)=>{
+                if (left._type === right._type) {
+                    return 0
+                }
+
+                if(left._type > right._type)
+                    return 1
+
+                return -1
+            })
+            console.log("results from skills reference search", data, skill._id, pageId)
+
             return data
         })
 }
