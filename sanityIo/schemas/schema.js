@@ -69,12 +69,9 @@ import MuiBreakpoints from "./mui/MuiBreakpoints";
 import MuiTheme from "./mui/MuiTheme";
 import MuiTypography from "./mui/MuiTypography";
 import MuiColorPalatte from "./mui/MuiColorPalatte";
-import WebDevHowItWorksSection from "./web-dev/WebDevHowItWorksSection";
-import WebDevHowItWorksStep from "./web-dev/WebDevHowItWorksStep";
 import TestimonialsSection from "./testimonials/TestimonialsSection";
 import PortfolioSection from "./portfolio/PortfolioSection";
 import Testimonials from "./testimonials/Testimonials";
-import portfolioItem from "./sections/portfolioItem";
 import category from "./category";
 import ServicesSection from "./services/ServicesSection";
 import ServiceItem from "./services/ServiceItem";
@@ -93,6 +90,10 @@ import AnimatedPortfolioSection from "./sections/animated/AnimatedPortfolioSecti
 import HeadlineCTASection from "./HeadlineCTASection";
 import MapSection from "./sections/MapSection";
 import PortfolioItem from "./portfolio/PortfolioItem";
+import WebDevHowItWorksSection from "./sections/web-dev/WebDevHowItWorksSection";
+import WebDevHowItWorksStep from "./sections/web-dev/WebDevHowItWorksStep";
+import WebDevPricingSection from "./sections/web-dev/WebDevPricingSection";
+import WebDevPricingPlan from "./sections/web-dev/WebDevPricingPlan";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
@@ -190,5 +191,7 @@ export default [
     AnimatedPortfolioSection,
     HeroSlideContent,
     HeadlineCTASection,
-    MapSection
+    MapSection,
+    WebDevPricingSection,
+    WebDevPricingPlan
 ]

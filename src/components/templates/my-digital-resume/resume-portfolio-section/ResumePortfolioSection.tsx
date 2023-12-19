@@ -1,12 +1,8 @@
 import React, {FunctionComponent} from 'react'
-import {Button, ButtonGroup, Chip, Grid, IconButton, Modal, Typography, useMediaQuery, useTheme} from '@mui/material'
+import {Grid, Typography, useMediaQuery, useTheme} from '@mui/material'
 import {ResumePortfolioItem, ResumePortfolioSectionType} from "../../../BlockContentTypes";
 import useThwCommonStyles from "../../../../common/sanityIo/ThwCommonStyles";
-import {urlFor} from "../../../block-content-ui/static-pages/cmsStaticPagesClient";
-import {Close} from "@mui/icons-material";
-import dateUtils from "../../../../utils/dateUtils";
 import ResumePortfolioEntry from "./ResumePortfolioEntry";
-import PortfolioItemModal from "./PortfolioItemModal";
 
 interface IProps {
     sectionData: ResumePortfolioSectionType
@@ -51,7 +47,7 @@ const ResumePortfolioSection: FunctionComponent<IProps> = (props: IProps) => {
                 <Grid item container justifyContent={'center'} xs={11} justifySelf={'center'} spacing={1}>
                     {
                         props.sectionData.portfolioEntries?.map((portfolioItem: ResumePortfolioItem, index2: number) => {
-                            return <ResumePortfolioEntry portfolioItem={portfolioItem} key={index2}/>
+                            return <Grid key={index2} item xs={12} sm={6} lg={4} xl={4}><ResumePortfolioEntry portfolioItem={portfolioItem} /></Grid>
                         })
                     }
                 </Grid>

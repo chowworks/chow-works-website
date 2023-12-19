@@ -38,7 +38,7 @@ const WebDevServiceItem: FunctionComponent<IProps> = (props: IProps) => {
             {props.service.learnMoreText && props.service?.learnMoreText.length > 0 &&
                 <Button fullWidth
                         onClick={() =>
-                            firebaseAnalyticsClient.ctaClick(props.service.slug?.current ?? "", props.service.learnMoreText, pageContext.analyticsId,)
+                            firebaseAnalyticsClient.ctaClick(props.service.slug?.current ?? "", props.service.learnMoreText ?? "", pageContext.analyticsId,)
 
                         } color='primary' href={props.service.learnMoreLink}
                         variant='contained'><Typography variant='button'
@@ -50,8 +50,6 @@ const WebDevServiceItem: FunctionComponent<IProps> = (props: IProps) => {
     // const mdDown = mediaContext.mdDown
 
     return (
-        <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={WebDevSiteTheme}>
                 <Grid key={uuidv4()} container item md={6}
                       style={{backgroundColor: COLOR_ROTATION[(props.index ?? 0) % 3], padding: theme.spacing(4)}}
                       alignContent='center' alignItems='center'>
@@ -122,8 +120,7 @@ const WebDevServiceItem: FunctionComponent<IProps> = (props: IProps) => {
                         {/*{props.showAmenities &&*/}
                         {/*    <AmenitiesSection service={props.service} />}*/}
                     </Grid>
-                </Grid></ThemeProvider>
-        </StyledEngineProvider>
+                </Grid>
     );
 }
 

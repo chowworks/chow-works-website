@@ -7,7 +7,7 @@ export default defineConfig({
     title: "Chow Works Website",
     projectId: "rhjxlvuj",
     dataset: "development",
-    plugins: [deskTool(), visionTool()],
+    plugins: [deskTool({}), visionTool()],
     schema: {
         types: schemas,
     },

@@ -4,10 +4,15 @@ import {Card, Grid, Link, useTheme} from '@mui/material'
 import sanityClient from '../sanityClient'
 import {blockSerializers} from '../common/sanityIo/BlockContentRenderer'
 import {
-    AnimatedAboutUsSectionType, AnimatedPortfolioSectionType, AnimatedServicesSectionType, HeadlineCTASectionType,
+    AnimatedAboutUsSectionType,
+    AnimatedPortfolioSectionType,
+    AnimatedServicesSectionType,
+    HeadlineCTASectionType,
     HeroAnimatedContentSectionType,
-    HowItWorksSectionType, MapSectionType,
+    HowItWorksSectionType,
+    MapSectionType,
     PortfolioSectionType,
+    PricingSectionType,
     ResumeBioSectionType,
     ResumeContactUsSectionType,
     ResumeEducationSectionType,
@@ -58,6 +63,7 @@ import AnimatedServicesSection from './animated/AnimatedServicesSection'
 import AnimatedPortfolioSection from "./animated/AnimatedPortfolioSection";
 import HeadlineCTASection from "./animated/HeadlineCTASection";
 import MapSection from "./animated/MapSection";
+import WebDevPricingSection from "./templates/web-dev-site/WebDevPricingSection";
 
 export type BlockContentLayoutContainerProps = {
     content?: any,
@@ -66,7 +72,7 @@ export type BlockContentLayoutContainerProps = {
 
 const BlockContentLayoutContainer: FunctionComponent<BlockContentLayoutContainerProps> = (props) => {
     const classes = useThwCommonStyles()
-    const theme= useTheme()
+    const theme = useTheme()
 
     return (
         <Grid container item>
@@ -459,7 +465,7 @@ const BlockContentLayoutContainer: FunctionComponent<BlockContentLayoutContainer
                                 sectionData={headlineSection}
                             />
                         </Grid>
-                     case 'MapSection':
+                    case 'MapSection':
                         const mapSection: MapSectionType = columnLayoutContainer
 
                         return <Grid key={'map-section'} container item>
@@ -467,6 +473,16 @@ const BlockContentLayoutContainer: FunctionComponent<BlockContentLayoutContainer
                             </Link>
                             <MapSection
                                 sectionData={mapSection}
+                            />
+                        </Grid>
+                    case 'WebDevPricingSection':
+                        const pricingSection: PricingSectionType = columnLayoutContainer
+
+                        return <Grid key={'map-section'} container item>
+                            <Link id={"PRICING_SECTION"} underline="hover"><></>
+                            </Link>
+                            <WebDevPricingSection
+                                sectionData={pricingSection}
                             />
                         </Grid>
                     default:
